@@ -13,6 +13,7 @@ import os
 from .io import load_network, FabricsInputError
 from .model import run_baseline, run_evaluation
 from . import report
+from . import mapview
 
 __version__ = "0.1.0.dev0"
 __all__ = ["run", "load_network", "FabricsInputError"]
@@ -32,6 +33,7 @@ def run(folder, out_dir=None):
     report.write_assignments_csv(out_dir, demand, results, params)
     if results:
         report.write_results_csv(out_dir, results)
+    mapview.render(out_dir, demand, existing, params, summary, candidates, results)
     print(report.console_verdict(summary, results, params))
     print(f"\nwrote: {out_dir}")
     return summary, results

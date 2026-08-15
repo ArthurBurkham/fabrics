@@ -115,6 +115,7 @@ def evaluate_candidate(site, demand, existing, params):
     return {
         "site_id": site["site_id"],
         "name": site.get("name", site["site_id"]),
+        "line_haul_origin_id": origin["facility_id"],
         "capex": site["capex"],
         "pv_fixed_costs": site["annual_fixed_cost"] * a,
         "annual_line_haul_cost": lh_cost,
