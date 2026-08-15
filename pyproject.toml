@@ -7,7 +7,11 @@ authors = [
     { name = "Arthur Burkham", email = "unincarty@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "highspy>=1.15.1",
+    "numpy>=2.5.2",
+    "pulp>=3.3.2",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.1,<0.13.0"]
