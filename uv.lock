@@ -127,19 +127,19 @@ wheels = [
 ]
 
 [[package]]
-name = "fabrics"
+name = "fabrics-logistics"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "folium" },
     { name = "highspy" },
-    { name = "numpy" },
     { name = "pulp" },
     { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
 dev = [
+    { name = "numpy" },
     { name = "pytest" },
 ]
 
@@ -147,13 +147,15 @@ dev = [
 requires-dist = [
     { name = "folium", specifier = ">=0.20.0" },
     { name = "highspy", specifier = ">=1.15.1" },
-    { name = "numpy", specifier = ">=2.5.2" },
     { name = "pulp", specifier = ">=3.3.2" },
     { name = "pyyaml", specifier = ">=6.0.3" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.1.1" }]
+dev = [
+    { name = "numpy", specifier = ">=2.5.2" },
+    { name = "pytest", specifier = ">=9.1.1" },
+]
 
 [[package]]
 name = "folium"

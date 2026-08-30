@@ -1,7 +1,7 @@
 [project]
-name = "fabrics"
+name = "fabrics-logistics"
 version = "0.1.0"
-description = "Add your description here"
+description = "MIP-based logistics network design: facility location with CFO-legible NPV output"
 readme = "README.md"
 authors = [
     { name = "Arthur Burkham", email = "unincarty@gmail.com" }
@@ -10,7 +10,6 @@ requires-python = ">=3.14"
 dependencies = [
     "folium>=0.20.0",
     "highspy>=1.15.1",
-    "numpy>=2.5.2",
     "pulp>=3.3.2",
     "pyyaml>=6.0.3",
 ]
@@ -27,5 +26,13 @@ filterwarnings = ["ignore:Constructing LpVariable"]
 
 [dependency-groups]
 dev = [
+    "numpy>=2.5.2",
     "pytest>=9.1.1",
 ]
+
+
+[project.urls]
+Homepage = "https://github.com/ArthurBurkham/fabrics"
+
+[tool.uv.build-backend]
+module-name = "fabrics"

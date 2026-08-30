@@ -1,4 +1,44 @@
-# Fabrics — v0.1 Contract
+# Fabrics
+
+**Value your network, then value changing it.**
+
+Open-source facility location for logistics, built for finance-literate answers. Feed it CSVs of your demand, your existing facilities, and your candidate sites; get back an NPV-ranked verdict on which site to open, cost-to-serve diagnostics for the network you already run, and a map.
+
+## Install
+
+```
+pip install fabrics-logistics
+```
+
+## Use
+
+```
+fabrics path/to/your/network/
+```
+
+A network folder needs `demand.csv` and `existing_facilities.csv` — that alone runs **Diagnose mode**, which values your current network's cost-to-serve and ties it out against your actual freight spend. Add `candidate_sites.csv` (and optionally `params.yaml`) to run **Evaluate mode**: a MIP decides which candidate to open and reports everything as a delta against your validated baseline.
+
+Outputs, written to `<folder>/out/`:
+
+- `baseline.csv` — per-facility cost rollup and network totals: the trust artifact
+- `results.csv` — every candidate ranked by NPV, with payback, captured volume, and line-haul cost
+- `assignments.csv` — per-point before/after: facility, miles, annual cost
+- `map.html` — self-contained interactive map: cost-to-serve heat, the chosen site, the line-haul leg
+- a console verdict in plain English
+
+Try the built-in demo (a synthetic Arizona network — three Phoenix DCs, ~200 demand points, ten candidate micro-hub sites):
+
+```
+git clone https://github.com/ArthurBurkham/fabrics
+cd fabrics
+uv run fabrics examples/demo
+```
+
+Full input/output specification below. Fabrics is early (v0.1) and deliberately narrow — see "Non-goals" for what it doesn't do yet.
+
+---
+
+# The v0.1 Contract
 
 **One-liner:** First, value what you have: **what does your current network actually cost to run?** Then overlay candidates: **which site should you open, and what is it worth against that baseline?**
 
@@ -168,3 +208,7 @@ Plain-English verdict, baseline first:
 
 1. **Diagnose:** `examples/demo/` runs with only `demand.csv` + `existing_facilities.csv` and produces baseline.csv, map, and console verdict.
 2. **Evaluate:** full dataset (~200 demand points, 10 candidates) runs end-to-end in under 10 seconds and the ranked table matches a hand-checked answer.
+
+## License
+
+MIT © 2026 Arthur Burkham

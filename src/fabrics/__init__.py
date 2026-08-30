@@ -15,7 +15,7 @@ from .model import run_baseline, run_evaluation
 from . import report
 from . import mapview
 
-__version__ = "0.1.0.dev0"
+__version__ = "0.1.0"
 __all__ = ["run", "load_network", "FabricsInputError"]
 
 
@@ -37,3 +37,4 @@ def run(folder, out_dir=None):
     print(report.console_verdict(summary, results, params))
     print(f"\nwrote: {out_dir}")
     return summary, results
+
